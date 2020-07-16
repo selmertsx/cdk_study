@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/selmertsx/cdk_study/issues"
   },
-  "homepage": "https://github.com/selmertsx/cdk_study#readme"
+  "homepage": "https://github.com/selmertsx/cdk_study#readme",
+  "devDependencies": {
+    "aws-cdk": "^1.51.0"
+  }
 }
