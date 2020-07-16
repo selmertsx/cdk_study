@@ -5,6 +5,11 @@
   "bin": {
     "cdk_study": "bin/cdk_study.js"
   },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/selmertsx/cdk_study.git"
