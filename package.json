@@ -2,9 +2,8 @@
   "name": "cdk_study",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "cdk_study": "bin/cdk_study.js"
   },
   "repository": {
     "type": "git",
@@ -12,13 +11,14 @@
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/selmertsx/cdk_study/issues"
-  },
   "homepage": "https://github.com/selmertsx/cdk_study#readme",
   "devDependencies": {
     "@aws-cdk/aws-lambda": "^1.51.0",
-    "@aws-cdk/core": "^1.51.0",
-    "aws-cdk": "^1.51.0"
+    "aws-cdk": "^1.51.0",
+    "ts-node": "^8.10.2",
+    "typescript": "~3.5.3"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "^1.51.0"
   }
 }
