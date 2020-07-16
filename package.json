@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/selmertsx/cdk_study#readme",
   "devDependencies": {
+    "@aws-cdk/aws-lambda": "^1.51.0",
+    "@aws-cdk/core": "^1.51.0",
     "aws-cdk": "^1.51.0"
   }
 }
