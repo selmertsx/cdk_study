@@ -1,2 +1,18 @@
-.envrc
+*.js
+*.d.ts
 node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+.envrc
+
+# for Lambda Layers
+layer_modules
+lambda_layer.zip
+
+# for deploy node_modules
+tmp/node_modules
+
+# For MacOS
+.DS_Store
