@@ -24,6 +24,10 @@ setuptools.setup(
         "aws-cdk.aws-apigateway"
     ],
 
+    extra_requires={
+        "develop": ["localstack"]
+    },
+
     python_requires=">=3.6",
 
     classifiers=[
