@@ -21,7 +21,10 @@ setuptools.setup(
     install_requires=[
         "aws-cdk.core==1.54.0",
         "aws-cdk.aws-lambda",
-        "aws-cdk.aws-apigateway"
+        "aws-cdk.aws-apigateway",
+        "aws-cdk.aws_dynamodb",
+        "boto3",
+        "botocore"
     ],
 
     extra_requires={
