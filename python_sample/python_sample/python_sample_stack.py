@@ -23,7 +23,7 @@ class PythonSampleStack(core.Stack):
             "producer_lambda_function",
             runtime=aws_lambda.Runtime.PYTHON_3_6,
             handler="handler.main",
-            code=aws_lambda.Code.asset("./lambnda/producer")
+            code=aws_lambda.Code.asset(path="./lambda/producer")
         )
         producer_lambda.add_environment("TABLE_NAME", demo_table.table_name)
         demo_table.grant_write_data(producer_lambda)
@@ -33,11 +33,34 @@ class PythonSampleStack(core.Stack):
             "consumer_lambda_function",
             runtime=aws_lambda.Runtime.PYTHON_3_6,
             handler="handler.main",
-            code=aws_lambda.Code.asset("./lambnda/consumer")
+            code=aws_lambda.Code.asset(path="./lambda/consumer")
         )
+
         consumer_lambda.add_environment("TABLE_NAME", demo_table.table_name)
         demo_table.grant_read_data(consumer_lambda)
         base_api = aws_apigateway.RestApi(self, "PythonApiGateway", rest_api_name="PythonApiGateway")
         example_entity = base_api.root.add_resource("example")
-        example_entity.add_method("GET", consumer_lambda)
-        example_entity.add_method("POST", producer_lambda)
+        example_entity_lambda_integration = aws_apigateway.LambdaIntegration(
+            consumer_lambda,
+            proxy=False,
+            integration_responses=[
+                {
+                    "statusCode": "200",
+                    "responseParameters": {
+                        'method.response.header.Access-Control-Allow-Origin': "'*'",
+                    }
+                }
+            ]
+        )
+        example_entity.add_method(
+            "GET",
+            example_entity_lambda_integration,
+            method_responses=[{
+                'statusCode': '200',
+                'responseParameters': {
+                    'method.response.header.Access-Control-Allow-Origin': True,
+                }
+            }]
+        )
+
+        # example_entity.add_method("POST", producer_lambda)
