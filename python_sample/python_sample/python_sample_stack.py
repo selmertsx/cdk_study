@@ -52,6 +52,7 @@ class PythonSampleStack(core.Stack):
                 }
             ]
         )
+
         example_entity.add_method(
             "GET",
             example_entity_lambda_integration,
@@ -63,4 +64,26 @@ class PythonSampleStack(core.Stack):
             }]
         )
 
-        # example_entity.add_method("POST", producer_lambda)
+        producer_lambda_integration = aws_apigateway.LambdaIntegration(
+            producer_lambda,
+            proxy=False,
+            integration_responses=[
+                {
+                    "statusCode": "200",
+                    "responseParameters": {
+                        'method.response.header.Access-Control-Allow-Origin': "'*'",
+                    }
+                }
+            ]
+        )
+
+        example_entity.add_method(
+            "POST",
+            producer_lambda_integration,
+            method_responses=[{
+                'statusCode': '200',
+                'responseParameters': {
+                    'method.response.header.Access-Control-Allow-Origin': True,
+                }
+            }]
+        )
