@@ -1,3 +1,4 @@
+# __future__ って何を使ってるんだろ？
 from __future__ import print_function
 
 import json
