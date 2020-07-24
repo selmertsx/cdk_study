@@ -27,5 +27,6 @@ def main(event, context):
         }
     )
     print("PutItem succeeded:")
-    print(json.dumps(response, indent=4, cls="DecimalEncoder"))
+    # こいつは悪さしてるみたいだ
+    # print(json.dumps(response, indent=4, cls="DecimalEncoder"))
     return { "statusCode": 200 }
