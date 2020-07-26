@@ -25,3 +25,13 @@ printのclsって何に使うんだろ？
 ```python
 print(json.dumps(i, cls=DecimalEncoder))
 ```
+
+## SAM local 実行
+
+https://docs.aws.amazon.com/cdk/latest/guide/sam.html
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html
+
+```
+cdk synth --no-staging > template.yaml
+sam local invoke consumerlambdafunction40710347 --no-event
+```
