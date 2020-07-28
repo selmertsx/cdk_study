@@ -9,7 +9,14 @@ export class CdkStudyStack extends cdk.Stack {
 
     new lambda.Function(this, "cdkStudyLambda", {
       code: lambda.Code.asset("src/lambda"),
-      handler: "index.handler",
+      handler: "authorization.handler",
+      runtime: lambda.Runtime.NODEJS_12_X,
+      timeout: Duration.seconds(20)
+    })
+
+    new lambda.Function(this, "cdkStudyLambda", {
+      code: lambda.Code.asset("src/lambda"),
+      handler: "backend.handler",
       runtime: lambda.Runtime.NODEJS_12_X,
       timeout: Duration.seconds(20)
     });

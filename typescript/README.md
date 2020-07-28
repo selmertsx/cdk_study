@@ -1,13 +1,8 @@
 # cdk_study
 
-## 手順
+## 参考資料
 
-```
-npm init
-npm add -D aws-cdk
-brew cask install aws-vault
-```
+lambdaを使ったリクエストベースのオーソライザーを作るぞ
 
-色々頑張る
+https://docs.aws.amazon.com/ja_jp/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
 
-https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-envvars.html
