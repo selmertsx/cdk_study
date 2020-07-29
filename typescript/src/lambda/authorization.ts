@@ -1,5 +1,5 @@
 export function handler(event: any, context: any, callback: any){
-  callback(null, generateAllow("me", "Allow", event.methodArn));
+  return callback(null, generateAllow("me", "Allow", event.methodArn));
 }
 
 function generateAllow(principalId: string, effect: string, resource: string){
