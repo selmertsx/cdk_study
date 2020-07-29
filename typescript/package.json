@@ -18,18 +18,18 @@
   "license": "ISC",
   "homepage": "https://github.com/selmertsx/cdk_study#readme",
   "devDependencies": {
-    "@aws-cdk/aws-apigateway": "^1.54.0",
-    "@aws-cdk/aws-lambda": "^1.54.0",
+    "@aws-cdk/aws-apigateway": "^1.55.0",
+    "@aws-cdk/aws-lambda": "^1.55.0",
     "@types/aws-lambda": "^8.10.59",
     "@types/jest": "^26.0.7",
     "@types/node": "^14.0.27",
-    "aws-cdk": "^1.54.0",
+    "aws-cdk": "^1.55.0",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.4",
     "ts-node": "^8.10.2",
     "typescript": "~3.5.3"
   },
   "dependencies": {
-    "@aws-cdk/core": "^1.54.0"
+    "@aws-cdk/core": "^1.55.0"
   }
 }

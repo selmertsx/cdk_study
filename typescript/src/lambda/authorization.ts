@@ -1,13 +1,5 @@
 export function handler(event: any, context: any, callback: any){
-  // Parse the input for the parameter values
-  var tmp = event.methodArn.split(':');
-  var apiGatewayArnTmp = tmp[5].split('/');
-  var resource = '/'; // root resource
-  if (apiGatewayArnTmp[3]) {
-      resource += apiGatewayArnTmp[3];
-  }
-
-  callback(null, generateAllow("me", "Allow", resource));
+  callback(null, generateAllow("me", "Allow", event.methodArn));
 }
 
 function generateAllow(principalId: string, effect: string, resource: string){
@@ -23,10 +15,12 @@ function generateAllow(principalId: string, effect: string, resource: string){
   }
 
   const response = {
+    principalId,
     context: {
       "sampleValue": "samplesample!"
     },
     policyDocument,
   }
+
   return response
 }
