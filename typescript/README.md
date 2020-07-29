@@ -1,6 +1,6 @@
 # cdk_study
 ## メモ
-
+### API Gateway Custom Authorizer の設定方法
 API Gatewayのカスタム認証にてリクエストベースのLambdaオーソライザー関数を作成する場合は、
 cdk経由で設定するなら、header, query文字列、ステージ変数、コンテキストのいずれかに必ずパラメータが入っている必要がある。
 consoleからやるなら、必ずしもパラメータが入っている必要はない。
@@ -21,6 +21,26 @@ export interface RequestAuthorizerProps extends LambdaAuthorizerProps {
      */
     readonly identitySources: string[];
 }
+```
+
+### Lambda の確認方法
+
+```
+curl -H "Authorization:sample" https://xxxx.execute-api.ap-northeast-1.amazonaws.com/prod/samples
+```
+
+### Backend Lambdaに送信される eventの内容(一部抜粋)
+
+```
+"requestContext": {
+        "resourceId": "pmzvd4",
+        "authorizer": {
+            "principalId": "me",
+            "integrationLatency": 283,
+            "sampleValue": "samplesample!" <= 手動で追加したパラメータ
+        },
+        ...
+    },
 ```
 
 ## 参考資料
